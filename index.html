@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raunak Srivastava | Portfolio</title>
+    <!-- Google Fonts are imported via @import in styles.css -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">RAUNAK SRIVASTAVA</span><span class="logo-dot"></span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><button class="nav-btn">Hire Me</button></li>
+            </ul>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Slide-out Menu Overlay -->
+    <div class="mobile-nav-overlay" id="mobileOverlay">
+        <ul class="mobile-menu">
+            <li><a href="#home" class="mobile-link">Home</a></li>
+            <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#experience" class="mobile-link">Experience</a></li>
+            <li><a href="#projects" class="mobile-link">Projects</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+            <li><button class="nav-btn" style="margin-top: 1rem;">Hire Me</button></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <main class="hero-section" id="home">
+
+        <!-- Name + Video Composite: text behind, video overlaps -->
+        <div class="hero-name-composite">
+            <div class="hero-name-bg" aria-hidden="true">
+                <span class="hero-name-line">RAUNAK</span>
+                <span class="hero-name-line">SRIVASTAVA</span>
+            </div>
+            <!-- Cinematic video profile with chroma-key -->
+            <div class="profile-container" id="profileCard">
+                <div class="profile-glow"></div>
+                <div class="profile-wrapper">
+                    <!-- Hidden video source -->
+                    <video id="heroVideo" src="Person_folding_arms_202606121751.mp4" 
+                           muted playsinline preload="auto" 
+                           style="display: none;"></video>
+                    <!-- Canvas renders chroma-keyed frames -->
+                    <canvas id="heroCanvas" class="profile-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="hero-title fade-in-right" style="--delay: 1.0s">
+            Crafting Softwares &amp;<br>
+            <span class="accent-text">Digital Experiences.</span>
+        </h1>
+        
+        <!-- Subheading -->
+        <p class="hero-desc fade-in" style="--delay: 1.3s">
+            I like to take software apart, figure out how it works, and build it back better. If you have a weird or wild idea, let's build it.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-ctas fade-in" style="--delay: 1.6s">
+            <button class="nav-btn">View My Work</button>
+            <button class="hero-btn-secondary">Hire Me</button>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-grid">
+                <!-- Left Column: Highlight Card -->
+                <div class="about-visual reveal">
+                    <div class="about-card">
+                        <div class="card-glow"></div>
+                        <div class="card-header">
+                            <span class="card-tag">Who I Am</span>
+                            <h3 class="card-title">Raunak Srivastava</h3>
+                            <p class="card-subtitle">7th Sem B.Tech CS Student at SRMU</p>
+                        </div>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Role</span>
+                                <span class="detail-val">Backend AI Intern @ FlyRank AI</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Focus</span>
+                                <span class="detail-val">Backend, AI &amp; Web Tech</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Core Belief</span>
+                                <span class="detail-val">"Learning by Building"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Text & Skills -->
+                <div class="about-content reveal" style="transition-delay: 0.15s;">
+                    <h2 class="section-title">
+                        Driven by Curiosity, <br>
+                        <span class="accent-text">Defined by Code.</span>
+                    </h2>
+                    
+                    <div class="about-bio">
+                        <p>
+                            Hi, I'm <strong>Raunak Srivastava</strong>, a B.Tech Computer Science student currently in my 7th semester at Shri Ramswaroop Memorial University (SRMU), Lucknow.
+                        </p>
+                        <p>
+                            I am focused on Software Engineering, Artificial Intelligence, Data Science, and Full-Stack Development. I enjoy building practical applications, solving technical problems, and working with modern technologies to create solutions that deliver real value.
+                        </p>
+                        <p>
+                            Currently, I am working as a <strong>Backend AI Engineer Intern</strong> at <strong>FlyRank AI</strong>, where I am gaining hands-on experience in developing AI-powered systems and backend technologies. Alongside my internship, I continuously improve my skills through projects, coding challenges, and exploring emerging technologies.
+                        </p>
+                        <p>
+                            My primary interests include backend development, web technologies, and scalable software systems. I am also strengthening my knowledge of Data Structures &amp; Algorithms and software development best practices.
+                        </p>
+                        <p>
+                            My goal is to build innovative products, contribute to impactful technology solutions, and grow into a skilled Software Engineer capable of solving complex real-world problems through technology.
+                        </p>
+                    </div>
+
+                    <div class="skills-wrapper">
+                        <h4 class="skills-title">Areas of Interest</h4>
+                        <div class="skills-grid-tags">
+                            <span class="skill-tag">Full-Stack Development</span>
+                            <span class="skill-tag">Artificial Intelligence</span>
+                            <span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Software Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Mock IDE Code Editor) -->
+    <section class="experience-section" id="experience">
+        <div class="experience-container">
+            <div class="experience-header reveal">
+                <h2 class="section-title">Professional &amp; Academic <span class="accent-text">Logs.</span></h2>
+                <p class="section-desc">Interactive explorer detailing my hands-on internship history and engineering background.</p>
+            </div>
+
+            <!-- Mock IDE Container -->
+            <div class="ide-container reveal">
+                <!-- Window Title / Tab Bar -->
+                <div class="ide-header">
+                    <div class="ide-controls">
+                        <span class="dot dot-close"></span>
+                        <span class="dot dot-minimize"></span>
+                        <span class="dot dot-maximize"></span>
+                    </div>
+                    <div class="ide-tabs">
+                        <div class="ide-tab active" id="tab-flyrank">
+                            <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            <span>flyrank_ai.md</span>
+                        </div>
+                        <div class="ide-tab" id="tab-srmu">
+                            <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            <span>srmu_lucknow.edu</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main IDE Layout -->
+                <div class="ide-body">
+                    <!-- Left Sidebar File Explorer -->
+                    <aside class="ide-sidebar">
+                        <div class="sidebar-title">EXPLORER: CAREER</div>
+                        <div class="explorer-folder">
+                            <div class="folder-header">
+                                <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                                <span>logs</span>
+                            </div>
+                            <div class="folder-items">
+                                <button class="explorer-item active" id="file-flyrank">
+                                    <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                    <span>flyrank_ai.md</span>
+                                </button>
+                                <button class="explorer-item" id="file-srmu">
+                                    <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                    <span>srmu_lucknow.edu</span>
+                                </button>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Editor Workspace Pane -->
+                    <main class="ide-editor">
+                        <!-- Line Numbers Column -->
+                        <div class="editor-lines">
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+                        </div>
+
+                        <!-- Content Window -->
+                        <div class="editor-content-wrapper">
+                            <!-- File 1: FlyRank AI (Active by default) -->
+                            <article class="editor-file active" id="content-flyrank">
+                                <div class="code-block">
+                                    <p class="code-line"><span class="token comment"># Internship log: Backend AI Engineer</span></p>
+                                    <p class="code-line"><span class="token keyword">const</span> <span class="token variable">company</span> = <span class="token string">"FlyRank AI"</span>;</p>
+                                    <p class="code-line"><span class="token keyword">const</span> <span class="token variable">role</span> = <span class="token string">"Backend AI Engineer Intern"</span>;</p>
+                                    <p class="code-line"><span class="token keyword">const</span> <span class="token variable">duration</span> = <span class="token string">"June 2026 - Present"</span>;</p>
+                                    
+                                    <h3 class="preview-heading">Core Responsibilities &amp; Impact</h3>
+                                    <ul class="preview-list">
+                                        <li>Developing robust and scalable AI-powered systems and backend microservices.</li>
+                                        <li>Optimizing API response structures and schema models for low-latency integrations.</li>
+                                        <li>Implementing data pipelines and workflows with focus on machine learning modules.</li>
+                                        <li>Collaborating with cross-functional engineering squads to build stable, production-ready modules.</li>
+                                    </ul>
+
+                                    <h3 class="preview-heading">Environment &amp; Stack</h3>
+                                    <div class="env-stack-grid">
+                                        <span class="stack-tag">Python</span>
+                                        <span class="stack-tag">FastAPI</span>
+                                        <span class="stack-tag">Node.js</span>
+                                        <span class="stack-tag">AI APIs</span>
+                                        <span class="stack-tag">Prisma</span>
+                                        <span class="stack-tag">SQL</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- File 2: SRMU Lucknow -->
+                            <article class="editor-file" id="content-srmu">
+                                <div class="code-block">
+                                    <p class="code-line"><span class="token comment"># Education details: Engineering Academic Track</span></p>
+                                    <p class="code-line"><span class="token keyword">const</span> <span class="token variable">institution</span> = <span class="token string">"Shri Ramswaroop Memorial University"</span>;</p>
+                                    <p class="code-line"><span class="token keyword">const</span> <span class="token variable">location</span> = <span class="token string">"Lucknow, India"</span>;</p>
+                                    <p class="code-line"><span class="token keyword">const</span> <span class="token variable">degree</span> = <span class="token string">"B.Tech in Computer Science &amp; Engineering"</span>;</p>
+                                    <p class="code-line"><span class="token keyword">const</span> <span class="token variable">currentStatus</span> = <span class="token string">"7th Semester (Penultimate Year)"</span>;</p>
+
+                                    <h3 class="preview-heading">Core Academic Subjects</h3>
+                                    <ul class="preview-list">
+                                        <li><strong>Data Structures &amp; Algorithms</strong>: Solid foundations in system optimization, time complexity, and data organization.</li>
+                                        <li><strong>Software Engineering</strong>: Focus on clean architecture, SDLC methodologies, and robust testing patterns.</li>
+                                        <li><strong>Data Science &amp; AI</strong>: Foundations in machine learning models, statistical analysis, and neural networks.</li>
+                                        <li><strong>Database Management</strong>: Schema normalization, relational constraints (MySQL, SQLite), and transaction safety.</li>
+                                    </ul>
+
+                                    <h3 class="preview-heading">Key Focus Areas</h3>
+                                    <div class="env-stack-grid">
+                                        <span class="stack-tag">Algorithms</span>
+                                        <span class="stack-tag">Full-Stack Tech</span>
+                                        <span class="stack-tag">Problem Solving</span>
+                                        <span class="stack-tag">Data pipelines</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="projects-container">
+            <div class="projects-header reveal">
+                <h2 class="section-title">Featured <span class="accent-text">Projects.</span></h2>
+                <p class="section-desc">Interactive dashboard of systems, real-time products, and security implementations.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Card 1: RaashanKart -->
+                <div class="bento-card bento-span-3" style="transition-delay: 0.05s;">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-top">
+                            <div class="bento-title-row">
+                                <span class="bento-icon-badge">🛒</span>
+                                <h3 class="bento-card-title">RaashanKart</h3>
+                            </div>
+                            <p class="bento-card-desc">Connecting local vendors with nearby customers through live inventory listings, easy search, and quick ordering.</p>
+                        </div>
+                        
+                        <!-- Widget: Interactive Shopping Cart -->
+                        <div class="widget-cart">
+                            <div class="cart-product">
+                                <span class="product-emoji">🍎</span>
+                                <span class="product-name">Apples</span>
+                                <div class="quantity-controls">
+                                    <button class="qty-btn btn-minus" onclick="updateCartItem('apples', -1)">-</button>
+                                    <span class="qty-val" id="qty-apples">0</span>
+                                    <button class="qty-btn btn-plus" onclick="updateCartItem('apples', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="cart-product">
+                                <span class="product-emoji">🥛</span>
+                                <span class="product-name">Milk</span>
+                                <div class="quantity-controls">
+                                    <button class="qty-btn btn-minus" onclick="updateCartItem('milk', -1)">-</button>
+                                    <span class="qty-val" id="qty-milk">0</span>
+                                    <button class="qty-btn btn-plus" onclick="updateCartItem('milk', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="cart-summary">
+                                <span>Cart Basket:</span>
+                                <span class="cart-badge" id="cart-total-badge">0</span>
+                            </div>
+                        </div>
+
+                        <div class="bento-tags">
+                            <span class="bento-tag">Next.js</span>
+                            <span class="bento-tag">React</span>
+                            <span class="bento-tag">Framer Motion</span>
+                        </div>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://github.com/Raunak0006/RaashanKart" target="_blank" rel="noopener noreferrer" class="bento-link">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://raunak0006.github.io/RaashanKart/" target="_blank" rel="noopener noreferrer" class="bento-link link-live">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <span>Live Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Typing Speed Testing -->
+                <div class="bento-card bento-span-3" style="transition-delay: 0.15s;">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-top">
+                            <div class="bento-title-row">
+                                <span class="bento-icon-badge">⌨️</span>
+                                <h3 class="bento-card-title">Typing Battle</h3>
+                            </div>
+                            <p class="bento-card-desc">Real-time WebSocket competitive typing assessment game with room matches.</p>
+                        </div>
+
+                        <!-- Widget: Typing Test Simulator -->
+                        <div class="widget-typing">
+                            <div class="typing-text-display" id="typing-prompt">
+                                <span class="typed-correct">const</span> <span class="typed-correct">battle</span> <span class="typed-correct">=</span> <span class="typed-cursor">async</span> () =&gt; { ... }
+                            </div>
+                            <div class="typing-inputs">
+                                <input type="text" class="typing-input" id="typing-input-field" placeholder="Type 'async' to race..." oninput="checkTypingRace(this.value)">
+                                <div class="typing-stats">
+                                    <span>WPM: <strong id="typing-wpm">92</strong></span>
+                                    <span>Acc: <strong id="typing-acc">100%</strong></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bento-tags">
+                            <span class="bento-tag">HTML5</span>
+                            <span class="bento-tag">Socket.io</span>
+                            <span class="bento-tag">JS Client</span>
+                        </div>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://github.com/Raunak0006/Typing-speed-testing" target="_blank" rel="noopener noreferrer" class="bento-link">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://raunak0006.github.io/Typing-speed-testing/" target="_blank" rel="noopener noreferrer" class="bento-link link-live">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <span>Live Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Code Quality Checker -->
+                <div class="bento-card bento-span-2" style="transition-delay: 0.25s;">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-top">
+                            <div class="bento-title-row">
+                                <span class="bento-icon-badge">🔍</span>
+                                <h3 class="bento-card-title">Code Checker</h3>
+                            </div>
+                            <p class="bento-card-desc">Java static analysis engine mapping violations and smells.</p>
+                        </div>
+
+                        <!-- Widget: Code Scanner Widget -->
+                        <div class="widget-scanner">
+                            <button class="scanner-btn" id="run-scan-btn" onclick="simulateCodeScan()">Run Quality Scan</button>
+                            <div class="scanner-results" id="scanner-results-box" style="display: none;">
+                                <div class="scanner-progress-bar"><div class="scanner-progress-fill" id="scanner-fill"></div></div>
+                                <div class="scanner-metrics" id="scanner-metrics-txt" style="opacity: 0;">
+                                    <span>Score: <strong style="color: #c3e88d;">98/100</strong></span>
+                                    <span>Smells: <strong style="color: #ff5f56;">0</strong></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bento-tags">
+                            <span class="bento-tag">Java</span>
+                            <span class="bento-tag">Spring Boot</span>
+                            <span class="bento-tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://github.com/Raunak0006/code-quality-checker" target="_blank" rel="noopener noreferrer" class="bento-link">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Secure API Dashboard -->
+                <div class="bento-card bento-span-4" style="transition-delay: 0.05s;">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-top">
+                            <div class="bento-title-row">
+                                <span class="bento-icon-badge">🛡️</span>
+                                <h3 class="bento-card-title">Secure API Console</h3>
+                            </div>
+                            <p class="bento-card-desc">React trading API dashboard with SQLite &amp; Prisma ORM. Analyzes trading throughput metrics.</p>
+                        </div>
+
+                        <!-- Widget: Mock SVG API Chart -->
+                        <div class="widget-api-chart">
+                            <div class="chart-header">
+                                <span class="chart-status-pulse"></span>
+                                <span>/api/v1/trades (Active throughput)</span>
+                            </div>
+                            <svg class="api-svg-chart" viewBox="0 0 300 80">
+                                <defs>
+                                    <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="rgba(217, 104, 70, 0.4)"/>
+                                        <stop offset="100%" stop-color="rgba(217, 104, 70, 0)"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 0,60 Q 30,30 60,55 T 120,20 T 180,45 T 240,15 T 300,30 L 300,80 L 0,80 Z" fill="url(#chart-grad)" />
+                                <path d="M 0,60 Q 30,30 60,55 T 120,20 T 180,45 T 240,15 T 300,30" fill="none" stroke="var(--accent-primary)" stroke-width="2" />
+                                <circle cx="240" cy="15" r="4" fill="#ffffff" stroke="var(--accent-primary)" stroke-width="2" />
+                            </svg>
+                            <div class="chart-footer">
+                                <span>Latency: <strong>14ms</strong></span>
+                                <span>Throughput: <strong>248 req/sec</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="bento-tags">
+                            <span class="bento-tag">Express</span>
+                            <span class="bento-tag">TypeScript</span>
+                            <span class="bento-tag">Prisma ORM</span>
+                        </div>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://github.com/Raunak0006/primetrade" target="_blank" rel="noopener noreferrer" class="bento-link">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5: Internship Matcher -->
+                <div class="bento-card bento-span-3" style="transition-delay: 0.15s;">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-top">
+                            <div class="bento-title-row">
+                                <span class="bento-icon-badge">🎓</span>
+                                <h3 class="bento-card-title">Internship Matcher</h3>
+                            </div>
+                            <p class="bento-card-desc">Student profile recommendations engine checking skills compatibility.</p>
+                        </div>
+
+                        <!-- Widget: Skill Match Sim -->
+                        <div class="widget-matcher">
+                            <div class="matcher-filters">
+                                <span class="match-pill active" onclick="toggleMatchSkill(this, 30)">Python</span>
+                                <span class="match-pill active" onclick="toggleMatchSkill(this, 40)">Web Tech</span>
+                                <span class="match-pill" onclick="toggleMatchSkill(this, 25)">SQL DB</span>
+                            </div>
+                            <div class="matcher-score">
+                                <span>Matching compatibility:</span>
+                                <strong id="match-score-val">70%</strong>
+                            </div>
+                        </div>
+
+                        <div class="bento-tags">
+                            <span class="bento-tag">HTML/CSS</span>
+                            <span class="bento-tag">JavaScript</span>
+                            <span class="bento-tag">Security</span>
+                        </div>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://github.com/Raunak0006/Internship-recommendation-system" target="_blank" rel="noopener noreferrer" class="bento-link">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 6: Sentiflow -->
+                <div class="bento-card bento-span-3" style="transition-delay: 0.25s;">
+                    <div class="bento-glow"></div>
+                    <div class="bento-content">
+                        <div class="bento-top">
+                            <div class="bento-title-row">
+                                <span class="bento-icon-badge">🧠</span>
+                                <h3 class="bento-card-title">Sentiflow</h3>
+                            </div>
+                            <p class="bento-card-desc">Lightweight NLP engine evaluating semantic tone of text inputs.</p>
+                        </div>
+
+                        <!-- Widget: Working Sentiment Input -->
+                        <div class="widget-sentiment">
+                            <input type="text" class="sentiment-input" placeholder="Type here ('happy', 'bad', 'cool')..." oninput="analyzeSentimentInput(this.value)">
+                            <div class="sentiment-result-row">
+                                <span>Output Tone:</span>
+                                <span class="sentiment-badge badge-neutral" id="sentiment-output">Neutral 😐</span>
+                            </div>
+                        </div>
+
+                        <div class="bento-tags">
+                            <span class="bento-tag">JavaScript</span>
+                            <span class="bento-tag">NLP Client</span>
+                        </div>
+                    </div>
+                    <div class="bento-actions">
+                        <a href="https://github.com/Raunak0006/sentiflow" target="_blank" rel="noopener noreferrer" class="bento-link">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-header reveal">
+                <h2 class="section-title">Let's <span class="accent-text">Connect.</span></h2>
+                <p class="section-desc">Interested in hiring me as a potential employee? Let's connect for internships, software engineering roles, or project collaborations.</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Left Column: Cards -->
+                <div class="contact-info reveal" style="transition-delay: 0.05s;">
+                    <!-- Location Card -->
+                    <div class="contact-card">
+                        <div class="contact-card-glow"></div>
+                        <div class="contact-card-header">
+                            <span class="contact-icon-badge">
+                                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </span>
+                            <div class="contact-card-details">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Lucknow, Uttar Pradesh, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <a href="mailto:raunaksrivastava2005@gmail.com" class="contact-card interactive">
+                        <div class="contact-card-glow"></div>
+                        <div class="contact-card-header">
+                            <span class="contact-icon-badge">
+                                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </span>
+                            <div class="contact-card-details">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">raunaksrivastava2005@gmail.com</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn Card -->
+                    <a href="https://linkedin.com/in/raunaksrivastava06" target="_blank" rel="noopener noreferrer" class="contact-card interactive">
+                        <div class="contact-card-glow"></div>
+                        <div class="contact-card-header">
+                            <span class="contact-icon-badge">
+                                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </span>
+                            <div class="contact-card-details">
+                                <span class="contact-label">LinkedIn</span>
+                                <span class="contact-value">raunaksrivastava06</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- GitHub Card -->
+                    <a href="https://github.com/Raunak0006" target="_blank" rel="noopener noreferrer" class="contact-card interactive">
+                        <div class="contact-card-glow"></div>
+                        <div class="contact-card-header">
+                            <span class="contact-icon-badge">
+                                <svg class="contact-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </span>
+                            <div class="contact-card-details">
+                                <span class="contact-label">GitHub</span>
+                                <span class="contact-value">Raunak0006</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Right Column: Interactive Form -->
+                <div class="contact-form-container reveal" style="transition-delay: 0.15s;">
+                    <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="form-name" class="form-label">Name</label>
+                            <input type="text" id="form-name" class="form-input" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email" class="form-label">Email</label>
+                            <input type="email" id="form-email" class="form-input" required placeholder="yourname@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="form-message" class="form-label">Message</label>
+                            <textarea id="form-message" class="form-input form-textarea" required placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="nav-btn submit-btn">Send Message</button>
+                    </form>
+
+                    <!-- Success Message Console Box -->
+                    <div class="contact-success-console" id="contactSuccess" style="display: none;">
+                        <div class="console-header">
+                            <span class="console-dot-close"></span>
+                            <span>terminal - connection</span>
+                        </div>
+                        <div class="console-body">
+                            <p class="console-log"><span class="log-sec">[SYS]</span> Initializing connection...</p>
+                            <p class="console-log"><span class="log-sec">[SYS]</span> Buffering message packet...</p>
+                            <p class="console-log"><span class="log-sec success">[OK]</span> Connection established! Message sent.</p>
+                            <p class="console-log mt-2"><span class="log-sec comment">// Thank you! I will get back to you shortly.</span></p>
+                            <button class="nav-btn console-reset-btn" onclick="resetContactForm()">Send Another Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ─── Mobile Menu ───
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileOverlay.classList.contains('active')) toggleMenu();
+            });
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileOverlay.classList.contains('active')) toggleMenu();
+        });
+
+        // ─── 3D Parallax Tilt ───
+        const profileCard = document.getElementById('profileCard');
+        if (profileCard) {
+            profileCard.addEventListener('mousemove', (e) => {
+                const rect = profileCard.getBoundingClientRect();
+                const rotateX = ((e.clientY - rect.top - rect.height / 2) / (rect.height / 2)) * -8;
+                const rotateY = ((e.clientX - rect.left - rect.width / 2) / (rect.width / 2)) * 8;
+                profileCard.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            profileCard.addEventListener('mouseleave', () => {
+                profileCard.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
+                profileCard.style.transition = 'transform 0.5s ease-out';
+            });
+            profileCard.addEventListener('mouseenter', () => {
+                profileCard.style.transition = 'transform 0.1s ease-out';
+            });
+        }
+
+        // ─── Green Screen Chroma-Key Video Renderer ───
+        const video = document.getElementById('heroVideo');
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        let animationId = null;
+        let videoPlaying = false;
+        const CROP_RATIO = 0.72; // Only render top 72% of video (head to waist)
+
+        // Chroma-key settings — tuned for bright green (#00B300 - #00FF00)
+        const CHROMA = {
+            minG: 100,   // minimum green channel
+            maxR: 135,   // maximum red channel (to exclude skin tones)
+            maxB: 135,   // maximum blue channel
+            ratio: 1.25  // green must be this much higher than avg of R and B
+        };
+
+        function isGreen(r, g, b) {
+            return g > CHROMA.minG 
+                && r < CHROMA.maxR 
+                && b < CHROMA.maxB 
+                && g > (r + b) / 2 * CHROMA.ratio;
+        }
+
+        function drawFrame() {
+            if (video.paused && videoPlaying) {
+                // Video ended — draw one last frame and stop
+                renderFrame();
+                videoPlaying = false;
+                return;
+            }
+            renderFrame();
+            animationId = requestAnimationFrame(drawFrame);
+        }
+
+        function initCanvasSize() {
+            if (video.videoWidth > 0 && video.videoHeight > 0) {
+                const targetW = video.videoWidth;
+                const targetH = Math.floor(video.videoHeight * CROP_RATIO);
+                if (canvas.width !== targetW || canvas.height !== targetH) {
+                    canvas.width = targetW;
+                    canvas.height = targetH;
+                }
+            }
+        }
+
+        function renderFrame() {
+            // Ensure canvas is correctly dimensioned to match video source before drawing
+            initCanvasSize();
+            
+            if (canvas.width === 0 || canvas.height === 0) return;
+
+            // Draw only the top CROP_RATIO of the video (head to waist)
+            const srcH = video.videoHeight * CROP_RATIO;
+            ctx.drawImage(video, 
+                0, 0, video.videoWidth, srcH,   // source: top portion only
+                0, 0, canvas.width, canvas.height // dest: fill entire canvas
+            );
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+
+            for (let i = 0; i < data.length; i += 4) {
+                if (isGreen(data[i], data[i + 1], data[i + 2])) {
+                    data[i + 3] = 0; // set alpha to 0 (transparent)
+                }
+            }
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        video.addEventListener('loadedmetadata', initCanvasSize);
+        if (video.readyState >= 1) {
+            initCanvasSize();
+        }
+
+        video.addEventListener('canplay', () => {
+            // Auto-start after a short cinematic delay
+            setTimeout(() => {
+                video.play();
+                videoPlaying = true;
+                drawFrame();
+            }, 400);
+        });
+
+        video.addEventListener('ended', () => {
+            // Draw final frame one more time to ensure it sticks
+            renderFrame();
+            if (animationId) cancelAnimationFrame(animationId);
+        });
+
+        // ─── Mock IDE Interactive File Switcher ───
+        const fileFlyrank = document.getElementById('file-flyrank');
+        const fileSrmu = document.getElementById('file-srmu');
+        const tabFlyrank = document.getElementById('tab-flyrank');
+        const tabSrmu = document.getElementById('tab-srmu');
+        const contentFlyrank = document.getElementById('content-flyrank');
+        const contentSrmu = document.getElementById('content-srmu');
+
+        function switchFile(target) {
+            if (target === 'flyrank') {
+                fileFlyrank.classList.add('active');
+                tabFlyrank.classList.add('active');
+                contentFlyrank.classList.add('active');
+
+                fileSrmu.classList.remove('active');
+                tabSrmu.classList.remove('active');
+                contentSrmu.classList.remove('active');
+            } else if (target === 'srmu') {
+                fileSrmu.classList.add('active');
+                tabSrmu.classList.add('active');
+                contentSrmu.classList.add('active');
+
+                fileFlyrank.classList.remove('active');
+                tabFlyrank.classList.remove('active');
+                contentFlyrank.classList.remove('active');
+            }
+        }
+
+        if (fileFlyrank && fileSrmu && tabFlyrank && tabSrmu) {
+            fileFlyrank.addEventListener('click', () => switchFile('flyrank'));
+            tabFlyrank.addEventListener('click', () => switchFile('flyrank'));
+            fileSrmu.addEventListener('click', () => switchFile('srmu'));
+            tabSrmu.addEventListener('click', () => switchFile('srmu'));
+        }
+
+        // ─── Bento Card Hover/Click Spin & Scroll Entrance ───
+        const bentoCards = document.querySelectorAll('.bento-card');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        bentoCards.forEach(card => {
+            // Mouse track for spotlight glow only (no tilt)
+            if (!isTouchDevice) {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const px = (x / rect.width) * 100;
+                    const py = (y / rect.height) * 100;
+                    card.style.setProperty('--mx', px + '%');
+                    card.style.setProperty('--my', py + '%');
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.setProperty('--mx', '50%');
+                    card.style.setProperty('--my', '50%');
+                });
+            }
+
+            // Spin animation trigger
+            const triggerSpin = () => {
+                card.classList.remove('spin-horizontal');
+                void card.offsetWidth; // force reflow
+                card.classList.add('spin-horizontal');
+            };
+
+            // Only listen to mouseenter on non-touch devices to prevent double-firing on tap
+            if (!isTouchDevice) {
+                card.addEventListener('mouseenter', triggerSpin);
+            }
+
+            // Listen to click events on both desktop and mobile, but exclude interactive children
+            card.addEventListener('click', (e) => {
+                const isInteractive = e.target.closest('a, button, input, textarea, select, .bento-actions, [class*="widget-"]');
+                if (isInteractive) {
+                    return;
+                }
+                triggerSpin();
+            });
+
+            // Clean up class after animation finishes so it can hover/spin again
+            card.addEventListener('animationend', (e) => {
+                if (e.animationName === 'horizontalSpin') {
+                    card.classList.remove('spin-horizontal');
+                }
+            });
+        });
+
+        // Bento card scroll reveal on scroll
+        const bentoObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    const idx = Array.from(bentoCards).indexOf(card);
+                    // Stagger each card's reveal by 120ms
+                    setTimeout(() => {
+                        card.classList.add('reveal-active');
+                        // Remove inline transition-delay after reveal animation finishes (800ms)
+                        setTimeout(() => {
+                            card.style.transitionDelay = '0s';
+                        }, 800);
+                    }, idx * 120);
+                    obs.unobserve(card);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        bentoCards.forEach(card => {
+            bentoObserver.observe(card);
+        });
+
+        // ─── Bento Grid Project Widgets Interactivity ───
+        
+        // 1. RaashanKart Cart Widget
+        const cartState = { apples: 0, milk: 0 };
+        window.updateCartItem = function(item, amount) {
+            cartState[item] = Math.max(0, cartState[item] + amount);
+            const itemEl = document.getElementById(`qty-${item}`);
+            if (itemEl) {
+                itemEl.textContent = cartState[item];
+                // Add bounce transition
+                itemEl.style.transform = 'scale(1.25)';
+                setTimeout(() => itemEl.style.transform = 'scale(1)', 100);
+            }
+            // Update total badge
+            const total = cartState.apples + cartState.milk;
+            const badge = document.getElementById('cart-total-badge');
+            if (badge) {
+                badge.textContent = total;
+                badge.style.transform = 'scale(1.35)';
+                setTimeout(() => badge.style.transform = 'scale(1)', 150);
+            }
+        };
+
+        // 2. Typing speed race widget
+        window.checkTypingRace = function(val) {
+            const wpmEl = document.getElementById('typing-wpm');
+            const accEl = document.getElementById('typing-acc');
+            const promptEl = document.getElementById('typing-prompt');
+            
+            if (val.trim().toLowerCase() === 'async') {
+                if (wpmEl) wpmEl.textContent = '125';
+                if (accEl) accEl.textContent = '100%';
+                if (promptEl) {
+                    promptEl.innerHTML = '<span class="typed-correct">const</span> <span class="typed-correct">battle</span> <span class="typed-correct">=</span> <span class="typed-correct">async</span> () =&gt; { ... }';
+                }
+            } else {
+                if (wpmEl) {
+                    wpmEl.textContent = val.length > 0 ? Math.floor(Math.random() * 20 + 80) : '92';
+                }
+                if (accEl) {
+                    accEl.textContent = val.length > 0 ? (val.toLowerCase() === 'asyn'.substring(0, val.length) ? '100%' : '80%') : '100%';
+                }
+                if (promptEl) {
+                    if (val.length > 0) {
+                        const isCorrect = 'async'.startsWith(val.toLowerCase());
+                        const spanClass = isCorrect ? 'typed-correct' : 'typed-wrong';
+                        promptEl.innerHTML = `<span class="typed-correct">const</span> <span class="typed-correct">battle</span> <span class="typed-correct">=</span> <span class="${spanClass}">${val}</span> () =&gt; { ... }`;
+                    } else {
+                        promptEl.innerHTML = '<span class="typed-correct">const</span> <span class="typed-correct">battle</span> <span class="typed-correct">=</span> <span class="typed-cursor">async</span> () =&gt; { ... }';
+                    }
+                }
+            }
+        };
+
+        // 3. Code Scanner Widget
+        window.simulateCodeScan = function() {
+            const btn = document.getElementById('run-scan-btn');
+            const resultsBox = document.getElementById('scanner-results-box');
+            const fill = document.getElementById('scanner-fill');
+            const metrics = document.getElementById('scanner-metrics-txt');
+
+            if (btn && resultsBox && fill && metrics) {
+                btn.style.display = 'none';
+                resultsBox.style.display = 'block';
+                fill.style.width = '0%';
+                metrics.style.opacity = '0';
+
+                setTimeout(() => {
+                    fill.style.width = '100%';
+                }, 50);
+
+                setTimeout(() => {
+                    metrics.style.opacity = '1';
+                    metrics.style.transform = 'translateY(0)';
+                }, 1200);
+            }
+        };
+
+        // 5. Matcher Widget
+        window.toggleMatchSkill = function(el, scoreImpact) {
+            el.classList.toggle('active');
+            
+            let currentScore = 0;
+            const pills = document.querySelectorAll('.match-pill');
+            pills.forEach(pill => {
+                if (pill.classList.contains('active')) {
+                    if (pill.textContent.includes('Python')) currentScore += 30;
+                    if (pill.textContent.includes('Web')) currentScore += 40;
+                    if (pill.textContent.includes('SQL')) currentScore += 25;
+                }
+            });
+
+            const scoreVal = document.getElementById('match-score-val');
+            if (scoreVal) {
+                scoreVal.textContent = `${currentScore}%`;
+                scoreVal.style.color = currentScore >= 70 ? '#c3e88d' : currentScore >= 40 ? '#ffbd2e' : '#ff5f56';
+            }
+        };
+
+        // 6. Sentiment Engine Widget
+        window.analyzeSentimentInput = function(val) {
+            const output = document.getElementById('sentiment-output');
+            if (!output) return;
+
+            if (val.trim() === '') {
+                output.textContent = 'Neutral 😐';
+                output.className = 'sentiment-badge badge-neutral';
+                return;
+            }
+
+            const posWords = ['happy', 'love', 'great', 'cool', 'good', 'nice', 'awesome', 'amazing', 'fun', 'smart', 'fast'];
+            const negWords = ['bad', 'sad', 'hate', 'angry', 'slow', 'fail', 'poor', 'worst', 'break', 'wrong', 'bug'];
+
+            let score = 0;
+            const words = val.toLowerCase().split(/\s+/);
+            words.forEach(w => {
+                if (posWords.some(pw => w.includes(pw))) score += 1;
+                if (negWords.some(nw => w.includes(nw))) score -= 1;
+            });
+
+            if (score > 0) {
+                output.textContent = 'Positive 😊';
+                output.className = 'sentiment-badge badge-positive';
+            } else if (score < 0) {
+                output.textContent = 'Negative 😢';
+                output.className = 'sentiment-badge badge-negative';
+            } else {
+                output.textContent = 'Neutral 😐';
+                output.className = 'sentiment-badge badge-neutral';
+            }
+        };
+
+        // ─── Contact Form Submission ───
+        window.handleFormSubmit = function(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('contactSuccess');
+            const submitBtn = form.querySelector('.submit-btn');
+            
+            // Set loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending Message...';
+            }
+            
+            // Access key
+            const accessKey = "f185a467-2181-47b8-ac71-e31f382cd9b5";
+            
+            const formData = {
+                access_key: accessKey,
+                name: document.getElementById('form-name').value,
+                email: document.getElementById('form-email').value,
+                message: document.getElementById('form-message').value,
+                subject: "New Contact Message from Portfolio"
+            };
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(async (response) => {
+                const json = await response.json();
+                if (response.status === 200) {
+                    if (form && success) {
+                        form.style.display = 'none';
+                        success.style.display = 'block';
+                    }
+                } else {
+                    console.error("API Error Response:", json);
+                    alert("Submission failed: " + (json.message || "Unknown error occurred."));
+                }
+            })
+            .catch(error => {
+                console.error("Network Error:", error);
+                alert("Network error: Could not send message. Please try again.");
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            });
+        };
+
+        window.resetContactForm = function() {
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('contactSuccess');
+            if (form && success) {
+                form.reset();
+                form.style.display = 'block';
+                success.style.display = 'none';
+            }
+        };
+
+        // ─── CTA Click Handlers ───
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.textContent.trim() === 'Hire Me') {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.getElementById('contact');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    if (mobileOverlay && mobileOverlay.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            }
+            if (btn.textContent.trim() === 'View My Work') {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.getElementById('projects');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+        // ─── Scroll Reveal Animation ───
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+        reveals.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>

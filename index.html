@@ -58,10 +58,10 @@
             <div class="profile-container" id="profileCard">
                 <div class="profile-glow"></div>
                 <div class="profile-wrapper">
-                    <!-- Hidden video source -->
+                    <!-- Hidden video source (avoiding display:none to prevent iOS Safari from suspending playback) -->
                     <video id="heroVideo" src="Person_folding_arms_202606121751.mp4" 
-                           muted playsinline preload="auto" 
-                           style="display: none;"></video>
+                           autoplay muted playsinline preload="auto" 
+                           style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; z-index: -1;"></video>
                     <!-- Canvas renders chroma-keyed frames -->
                     <canvas id="heroCanvas" class="profile-canvas"></canvas>
                 </div>
@@ -768,14 +768,26 @@
             initCanvasSize();
         }
 
-        video.addEventListener('canplay', () => {
-            // Auto-start after a short cinematic delay
-            setTimeout(() => {
-                video.play();
+        // Listen to the play event to start the loop
+        video.addEventListener('play', () => {
+            if (!videoPlaying) {
                 videoPlaying = true;
                 drawFrame();
-            }, 400);
+            }
         });
+
+        // Trigger playback as soon as metadata is ready or if it can play
+        const startVideo = () => {
+            video.play().catch(err => {
+                console.log("Video play request handled:", err);
+            });
+        };
+
+        if (video.readyState >= 3) {
+            startVideo();
+        } else {
+            video.addEventListener('canplay', startVideo);
+        }
 
         video.addEventListener('ended', () => {
             // Draw final frame one more time to ensure it sticks

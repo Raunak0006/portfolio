@@ -900,7 +900,7 @@ a {
 .bento-card {
     position: relative;
     background: rgba(255, 255, 255, 0.35);
-    border: 1px solid var(--border-light);
+    border: 3px solid #000000;
     border-radius: 50%;
     aspect-ratio: 1;
     width: 100%;
@@ -957,7 +957,7 @@ a {
         box-shadow:
             0 25px 70px rgba(0, 0, 0, 0.12),
             0 0 0 1px rgba(217, 104, 70, 0.12);
-        border-color: rgba(217, 104, 70, 0.3);
+        border-color: #000000;
     }
 
     .bento-card:hover::before {

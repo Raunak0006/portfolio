@@ -8,24 +8,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Terminal Preloader Overlay -->
-    <div id="preloader" class="preloader-overlay">
-        <div class="preloader-console">
-            <div class="console-header">
-                <span class="console-dot-close"></span>
-                <span>system - boot</span>
-            </div>
-            <div class="console-body">
-                <p class="preloader-log"><span class="log-sec">[SYS]</span> Booting environment...</p>
-                <p class="preloader-log"><span class="log-sec">[SYS]</span> Loading core assets...</p>
-                <div class="preloader-progress-bar">
-                    <div class="preloader-progress-fill" id="preloader-fill"></div>
-                </div>
-                <p class="preloader-log mt-2" style="display: none;" id="preloader-ready-txt"><span class="log-sec success">[OK]</span> UI Ready. Launching...</p>
-            </div>
-        </div>
-    </div>
-
     <header class="header">
         <nav class="nav-container">
             <a href="#" class="logo">
@@ -1159,39 +1141,6 @@
             threshold: 0.12
         });
         reveals.forEach(el => revealObserver.observe(el));
-
-        // ─── Preloader Logic ───
-        (function() {
-            const preloader = document.getElementById('preloader');
-            const fill = document.getElementById('preloader-fill');
-            const readyTxt = document.getElementById('preloader-ready-txt');
-            if (!preloader || !fill) return;
-
-            let progress = 0;
-            const interval = setInterval(() => {
-                // Simulate progressive loading up to 92%
-                progress += Math.floor(Math.random() * 12) + 4;
-                if (progress >= 92) {
-                    progress = 92;
-                    clearInterval(interval);
-                }
-                fill.style.width = `${progress}%`;
-            }, 80);
-
-            // Handle actual page loading complete
-            window.addEventListener('load', () => {
-                clearInterval(interval);
-                fill.style.width = '100%';
-                if (readyTxt) readyTxt.style.display = 'flex';
-                
-                setTimeout(() => {
-                    preloader.classList.add('fade-out');
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                    }, 500); // fade duration match
-                }, 350); // small pause to let user see 100% complete
-            });
-        })();
     </script>
 </body>
 </html>

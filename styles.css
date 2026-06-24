@@ -1619,6 +1619,16 @@ a {
     .bento-content {
         max-width: 82%;
     }
+    .bento-tags {
+        display: none !important;
+    }
+    .bento-actions {
+        flex-direction: column;
+        gap: 0.4rem;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+        width: 100%;
+    }
     .bento-span-2, .bento-span-3, .bento-span-4 {
         grid-column: span 1;
     }

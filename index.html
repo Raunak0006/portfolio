@@ -836,83 +836,71 @@
 
         // Code snippets per project card (mapped by index)
         const codeSnippets = [
-            // Card 0: RaashanKart (Next.js, React, Framer Motion)
+            // Card 0: RaashanKart (Next.js, React)
             [
-                'const [cart, setCart] = useState([]);',
-                'export default function Home() {',
-                '<motion.div animate={{ opacity: 1 }}>',
-                'useEffect(() => { fetchProducts(); }, []);',
-                'const router = useRouter();',
-                'return <CartProvider>{children}</CartProvider>',
-                'npm run dev',
-                'getServerSideProps(ctx)',
-                'const variants = { hidden: { y: 20 } };',
-                'import { AnimatePresence } from "framer-motion";'
+                'useState([])',
+                'useEffect()',
+                '<App />',
+                'import React',
+                'return null',
+                'props.children',
+                'npm start',
+                'export default'
             ],
-            // Card 1: Typing Battle (HTML5, Socket.io, JS)
+            // Card 1: Typing Battle (Socket.io, JS)
             [
-                'socket.emit("startRace", roomId);',
-                'document.addEventListener("keydown", e => {',
-                'const wpm = Math.round(chars / 5 / mins);',
-                'io.on("connection", socket => {',
-                'socket.broadcast.emit("progress", data);',
-                'let accuracy = (correct / total) * 100;',
-                'const timer = setInterval(() => {}, 1000);',
-                'socket.on("raceComplete", scores => {',
-                '<input type="text" id="typing-input">',
-                'clearInterval(timer);'
+                'socket.emit()',
+                'io.connect()',
+                'addEventListener()',
+                'setInterval()',
+                'clearTimeout()',
+                'Math.round()',
+                'keyCode === 13',
+                'innerHTML ='
             ],
-            // Card 2: Code Checker (Java, Spring Boot, MySQL)
+            // Card 2: Code Checker (Java, Spring)
             [
-                '@RestController',
-                'public class CodeAnalyzer {',
-                '@GetMapping("/api/scan")',
-                'SELECT * FROM violations WHERE severity > 3;',
-                'private final ScanService service;',
                 '@Autowired',
-                'ResponseEntity.ok(results);',
-                'public int calculateScore() {',
-                'spring.datasource.url=jdbc:mysql://',
-                'return violations.stream().count();'
+                'public void',
+                'return list;',
+                'SELECT *',
+                '.stream()',
+                'void main()',
+                '@GetMapping',
+                'new Object()'
             ],
-            // Card 3: Secure API Console (Express, TypeScript, Prisma)
+            // Card 3: API Console (Express, TS)
             [
-                'const app: Express = express();',
-                'await prisma.trade.findMany({});',
-                'interface TradePayload {',
-                'app.use(cors({ origin: "*" }));',
-                'model Trade { id Int @id @default }',
-                'export type ApiResponse<T> = {',
-                'const latency = Date.now() - start;',
-                'npx prisma migrate dev',
-                'app.listen(3001, () => {});',
-                'async function getTrades(): Promise<Trade[]>'
+                'app.listen()',
+                'async/await',
+                'req, res, next',
+                'interface {}',
+                'prisma.find()',
+                'export type',
+                'cors()',
+                ':Promise<>'
             ],
-            // Card 4: Internship Matcher (HTML/CSS, JS, Security)
+            // Card 4: Internship Matcher (JS)
             [
-                'function matchSkills(student, role) {',
-                'const score = skills.reduce((a, s) =>',
-                'document.querySelector(".match-pill")',
-                'if (compatibility > 70) return "Strong";',
-                'localStorage.setItem("profile", json);',
-                'fetch("/api/match", { method: "POST" })',
-                'const filtered = roles.filter(r =>',
-                '.match-pill { border-radius: 9999px; }',
-                'addEventListener("click", toggleSkill);',
-                'return Math.round(score / total * 100);'
+                'fetch(url)',
+                '.filter()',
+                '.map()',
+                'JSON.parse()',
+                'localStorage',
+                'if (score > 70)',
+                '.reduce()',
+                'onClick={}'
             ],
-            // Card 5: Sentiflow (JavaScript, NLP)
+            // Card 5: Sentiflow (JS, NLP)
             [
-                'function analyzeSentiment(text) {',
-                'const tokens = text.toLowerCase().split(" ");',
-                'const positives = ["happy", "great", "love"];',
-                'let score = tokens.reduce((acc, word) =>',
-                'if (score > 0) return "Positive 😊";',
-                'const negatives = ["bad", "hate", "sad"];',
-                'export function tokenize(input) {',
-                'return { tone, confidence: Math.abs(score) };',
-                'document.oninput = e => analyze(e.target);',
-                'console.log(analyzeSentiment(userInput));'
+                'console.log()',
+                '.split(" ")',
+                '.toLowerCase()',
+                'return score',
+                'for (let i)',
+                'Math.abs()',
+                'arr.includes()',
+                'export fn()'
             ]
         ];
 

@@ -6,6 +6,38 @@
     <title>Raunak Srivastava | Portfolio</title>
     <!-- Google Fonts are imported via @import in styles.css -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Critical CSS to prevent FOUC (Header Layout Shift) on load */
+        .header {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: #000000;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.1rem, 3.2vw, 1.45rem);
+            letter-spacing: -0.03em;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <header class="header">

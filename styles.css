@@ -2548,8 +2548,8 @@ a {
     position: fixed;
     z-index: 1;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.95rem;
+    font-weight: 800;
     color: #000000;
     background: none;
     border: none;
@@ -2565,17 +2565,17 @@ a {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
     }
-    10% {
-        opacity: 0.85;
-        transform: translate(calc(-50% + var(--tx) * 0.3), calc(-50% + var(--ty) * 0.3)) scale(1) rotate(calc(var(--rot) * 0.3));
+    8% {
+        opacity: 1;
+        transform: translate(calc(-50% + var(--tx) * 0.25), calc(-50% + var(--ty) * 0.25)) scale(1) rotate(calc(var(--rot) * 0.3));
     }
-    50% {
-        opacity: 0.7;
+    55% {
+        opacity: 1;
         transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--rot));
     }
     100% {
         opacity: 0;
-        transform: translate(calc(-50% + var(--tx) * 1.2), calc(-50% + var(--ty) * 1.2)) scale(0.8) rotate(var(--rot));
+        transform: translate(calc(-50% + var(--tx) * 1.2), calc(-50% + var(--ty) * 1.2)) scale(0.9) rotate(var(--rot));
     }
 }
 

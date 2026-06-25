@@ -1273,7 +1273,7 @@
         });
         reveals.forEach(el => revealObserver.observe(el));
 
-        // ─── Custom Road Scrollbar (Desktop Only) ───
+        // ─── Custom Road Scrollbar (Desktop & Mobile) ───
         document.addEventListener('DOMContentLoaded', () => {
             const roadContainer = document.getElementById('roadScrollbar');
             const roadCar = document.getElementById('roadCar');
@@ -1294,7 +1294,6 @@
             }
 
             function updateCarPosition() {
-                if (window.innerWidth < 1024) return;
                 const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
                 
@@ -1328,9 +1327,8 @@
             setTimeout(updateCarPosition, 300);
             setTimeout(updateCarPosition, 1000);
 
-            // Drag behavior
+            // Drag behavior (Mouse)
             roadCar.addEventListener('mousedown', (e) => {
-                if (window.innerWidth < 1024) return;
                 isDragging = true;
                 startY = e.clientY;
                 const computedTop = window.getComputedStyle(roadCar).top;
@@ -1366,9 +1364,44 @@
                 }
             });
 
+            // Touch Drag behavior (Mobile)
+            roadCar.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                startY = e.touches[0].clientY;
+                const computedTop = window.getComputedStyle(roadCar).top;
+                startTop = parseFloat(computedTop) || 6;
+                triggerHeadlights();
+                e.preventDefault();
+            }, { passive: false });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                triggerHeadlights();
+                
+                const deltaY = e.touches[0].clientY - startY;
+                const containerHeight = roadContainer.clientHeight;
+                const carHeight = roadCar.clientHeight;
+                const maxTravel = containerHeight - carHeight - 12;
+                
+                let targetTop = startTop + deltaY;
+                targetTop = Math.max(6, Math.min(targetTop, maxTravel + 6));
+                
+                roadCar.style.top = targetTop + 'px';
+
+                const scrollPercent = (targetTop - 6) / maxTravel;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                window.scrollTo(0, scrollPercent * docHeight);
+                e.preventDefault(); // Prevent default mobile scroll
+            }, { passive: false });
+
+            document.addEventListener('touchend', () => {
+                if (isDragging) {
+                    isDragging = false;
+                }
+            });
+
             // Jump-to click
             roadContainer.addEventListener('click', (e) => {
-                if (window.innerWidth < 1024) return;
                 if (e.target.closest('#roadCar')) return;
                 triggerHeadlights();
 

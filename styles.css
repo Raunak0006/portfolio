@@ -2579,96 +2579,119 @@ a {
     }
 }
 
-/* ─── CUSTOM ROAD SCROLLBAR (DESKTOP ONLY) ─── */
-@media (min-width: 1024px) {
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-        display: none !important;
-        width: 0 !important;
-        height: 0 !important;
+/* ─── CUSTOM ROAD SCROLLBAR ─── */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+html, body {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.road-scrollbar-container {
+    position: fixed;
+    right: 15px;
+    top: 25px;
+    bottom: 25px;
+    width: 30px;
+    background: #2f3640; /* Asphalt color */
+    border: 3px solid #1e272e;
+    border-radius: 15px;
+    z-index: 99999;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.4);
+    cursor: pointer;
+    display: block;
+}
+
+.road-scrollbar-line {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    bottom: 10px;
+    width: 0;
+    border-left: 2px dashed #fbc531; /* Road yellow dashes */
+    transform: translateX(-50%);
+    opacity: 0.7;
+}
+
+.road-car-handle {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 24px;
+    height: 48px;
+    transform: translateX(-50%);
+    cursor: grab;
+    z-index: 100000;
+    user-select: none;
+    will-change: top;
+    overflow: visible !important;
+}
+
+.road-car-handle:active {
+    cursor: grabbing;
+}
+
+.road-car-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 5px rgba(0,0,0,0.6));
+    overflow: visible !important;
+}
+
+/* Headlights default (OFF/DIMMED) */
+.road-car-handle .physical-headlight {
+    fill: #7f8c8d;
+    opacity: 0.5;
+    transition: fill 0.15s ease, opacity 0.15s ease;
+}
+
+.road-car-handle .headlight-beam {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+/* Headlights when MOVING (ON) */
+.road-car-handle.moving .physical-headlight {
+    fill: #ffffff !important;
+    opacity: 1 !important;
+}
+
+.road-car-handle.moving .headlight-beam {
+    opacity: 0.9 !important;
+}
+
+/* MOBILE AND TABLET OVERRIDES */
+@media (max-width: 1023px) {
+    body {
+        padding-right: 28px !important;
     }
     
-    html, body {
-        scrollbar-width: none !important;
-        -ms-overflow-style: none !important;
+    .nav-container {
+        padding-right: 36px !important;
     }
     
     .road-scrollbar-container {
-        position: fixed;
-        right: 15px;
-        top: 25px;
-        bottom: 25px;
-        width: 30px;
-        background: #2f3640; /* Asphalt color */
-        border: 3px solid #1e272e;
-        border-radius: 15px;
-        z-index: 99999;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.4);
-        cursor: pointer;
-        display: block;
+        right: 6px;
+        top: 15px;
+        bottom: 15px;
+        width: 18px;
+        border-radius: 9px;
+        border-width: 2px;
     }
     
     .road-scrollbar-line {
-        position: absolute;
-        left: 50%;
-        top: 10px;
-        bottom: 10px;
-        width: 0;
-        border-left: 2px dashed #fbc531; /* Road yellow dashes */
-        transform: translateX(-50%);
-        opacity: 0.7;
+        top: 6px;
+        bottom: 6px;
+        border-left-width: 1px;
     }
     
     .road-car-handle {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 24px;
-        height: 48px;
-        transform: translateX(-50%);
-        cursor: grab;
-        z-index: 100000;
-        user-select: none;
-        will-change: top;
-        overflow: visible !important;
-    }
-    
-    .road-car-handle:active {
-        cursor: grabbing;
-    }
-    
-    .road-car-svg {
-        width: 100%;
-        height: 100%;
-        filter: drop-shadow(0 4px 5px rgba(0,0,0,0.6));
-        overflow: visible !important;
-    }
-
-    /* Headlights default (OFF/DIMMED) */
-    .road-car-handle .physical-headlight {
-        fill: #7f8c8d;
-        opacity: 0.5;
-        transition: fill 0.15s ease, opacity 0.15s ease;
-    }
-    
-    .road-car-handle .headlight-beam {
-        opacity: 0;
-        transition: opacity 0.15s ease;
-    }
-    
-    /* Headlights when MOVING (ON) */
-    .road-car-handle.moving .physical-headlight {
-        fill: #ffffff !important;
-        opacity: 1 !important;
-    }
-    
-    .road-car-handle.moving .headlight-beam {
-        opacity: 0.9 !important;
-    }
-}
-
-@media (max-width: 1023px) {
-    .road-scrollbar-container {
-        display: none !important;
+        width: 14px;
+        height: 28px;
     }
 }

@@ -2630,6 +2630,7 @@ a {
         z-index: 100000;
         user-select: none;
         will-change: top;
+        overflow: visible !important;
     }
     
     .road-car-handle:active {
@@ -2640,6 +2641,7 @@ a {
         width: 100%;
         height: 100%;
         filter: drop-shadow(0 4px 5px rgba(0,0,0,0.6));
+        overflow: visible !important;
     }
 
     /* Headlights default (OFF/DIMMED) */

@@ -1274,7 +1274,7 @@
         reveals.forEach(el => revealObserver.observe(el));
 
         // ─── Custom Road Scrollbar (Desktop Only) ───
-        (function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const roadContainer = document.getElementById('roadScrollbar');
             const roadCar = document.getElementById('roadCar');
             if (!roadContainer || !roadCar) return;
@@ -1285,7 +1285,7 @@
 
             function updateCarPosition() {
                 if (window.innerWidth < 1024) return;
-                const scrollTop = window.scrollY;
+                const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
                 
                 if (docHeight <= 0) {
@@ -1302,6 +1302,7 @@
                 roadCar.style.top = targetY + 'px';
             }
 
+            // Sync scrolling
             window.addEventListener('scroll', () => {
                 if (!isDragging) {
                     requestAnimationFrame(updateCarPosition);
@@ -1309,17 +1310,20 @@
             });
 
             window.addEventListener('resize', updateCarPosition);
-            
-            // Wait for full page layout load to calculate height correctly
             window.addEventListener('load', updateCarPosition);
-            setTimeout(updateCarPosition, 500); // Fallback
+            
+            // Trigger initial calculation
+            updateCarPosition();
+            setTimeout(updateCarPosition, 300);
+            setTimeout(updateCarPosition, 1000);
 
             // Drag behavior
             roadCar.addEventListener('mousedown', (e) => {
                 if (window.innerWidth < 1024) return;
                 isDragging = true;
                 startY = e.clientY;
-                startTop = parseInt(window.getComputedStyle(roadCar).top, 10) || 6;
+                const computedTop = window.getComputedStyle(roadCar).top;
+                startTop = parseFloat(computedTop) || 6;
                 document.body.style.userSelect = 'none';
                 e.preventDefault();
             });
@@ -1349,6 +1353,7 @@
                 }
             });
 
+            // Jump-to click
             roadContainer.addEventListener('click', (e) => {
                 if (window.innerWidth < 1024) return;
                 if (e.target.closest('#roadCar')) return;
@@ -1370,7 +1375,7 @@
                     behavior: 'smooth'
                 });
             });
-        })();
+        });
     </script>
 
     <!-- Custom Road Scrollbar Elements -->

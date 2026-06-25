@@ -1334,6 +1334,7 @@
                 const computedTop = window.getComputedStyle(roadCar).top;
                 startTop = parseFloat(computedTop) || 6;
                 document.body.style.userSelect = 'none';
+                document.documentElement.style.scrollBehavior = 'auto'; // Disable smooth scroll during drag
                 triggerHeadlights();
                 e.preventDefault();
             });
@@ -1361,6 +1362,7 @@
                 if (isDragging) {
                     isDragging = false;
                     document.body.style.userSelect = '';
+                    document.documentElement.style.scrollBehavior = ''; // Restore smooth scroll
                 }
             });
 
@@ -1370,6 +1372,7 @@
                 startY = e.touches[0].clientY;
                 const computedTop = window.getComputedStyle(roadCar).top;
                 startTop = parseFloat(computedTop) || 6;
+                document.documentElement.style.scrollBehavior = 'auto'; // Disable smooth scroll during drag
                 triggerHeadlights();
                 e.preventDefault();
             }, { passive: false });
@@ -1397,6 +1400,7 @@
             document.addEventListener('touchend', () => {
                 if (isDragging) {
                     isDragging = false;
+                    document.documentElement.style.scrollBehavior = ''; // Restore smooth scroll
                 }
             });
 

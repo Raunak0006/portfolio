@@ -2641,6 +2641,28 @@ a {
         height: 100%;
         filter: drop-shadow(0 4px 5px rgba(0,0,0,0.6));
     }
+
+    /* Headlights default (OFF/DIMMED) */
+    .road-car-handle .physical-headlight {
+        fill: #7f8c8d;
+        opacity: 0.5;
+        transition: fill 0.15s ease, opacity 0.15s ease;
+    }
+    
+    .road-car-handle .headlight-beam {
+        opacity: 0;
+        transition: opacity 0.15s ease;
+    }
+    
+    /* Headlights when MOVING (ON) */
+    .road-car-handle.moving .physical-headlight {
+        fill: #ffffff !important;
+        opacity: 1 !important;
+    }
+    
+    .road-car-handle.moving .headlight-beam {
+        opacity: 0.9 !important;
+    }
 }
 
 @media (max-width: 1023px) {

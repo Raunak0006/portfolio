@@ -1282,6 +1282,16 @@
             let isDragging = false;
             let startY = 0;
             let startTop = 0;
+            let lightTimeout;
+
+            // Turn on headlights beam on motion, off after inactivity
+            function triggerHeadlights() {
+                roadCar.classList.add('moving');
+                clearTimeout(lightTimeout);
+                lightTimeout = setTimeout(() => {
+                    roadCar.classList.remove('moving');
+                }, 180); // Headlights turn off 180ms after scrolling/dragging stops
+            }
 
             function updateCarPosition() {
                 if (window.innerWidth < 1024) return;
@@ -1304,6 +1314,7 @@
 
             // Sync scrolling
             window.addEventListener('scroll', () => {
+                triggerHeadlights();
                 if (!isDragging) {
                     requestAnimationFrame(updateCarPosition);
                 }
@@ -1325,11 +1336,13 @@
                 const computedTop = window.getComputedStyle(roadCar).top;
                 startTop = parseFloat(computedTop) || 6;
                 document.body.style.userSelect = 'none';
+                triggerHeadlights();
                 e.preventDefault();
             });
 
             document.addEventListener('mousemove', (e) => {
                 if (!isDragging) return;
+                triggerHeadlights();
                 
                 const deltaY = e.clientY - startY;
                 const containerHeight = roadContainer.clientHeight;
@@ -1357,6 +1370,7 @@
             roadContainer.addEventListener('click', (e) => {
                 if (window.innerWidth < 1024) return;
                 if (e.target.closest('#roadCar')) return;
+                triggerHeadlights();
 
                 const rect = roadContainer.getBoundingClientRect();
                 const clickY = e.clientY - rect.top;
@@ -1383,6 +1397,18 @@
         <div class="road-scrollbar-line"></div>
         <div class="road-car-handle" id="roadCar">
             <svg class="road-car-svg" viewBox="0 0 24 48" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="headlightGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                        <stop offset="25%" stop-color="#fffbeb" stop-opacity="0.75" />
+                        <stop offset="100%" stop-color="#fef08a" stop-opacity="0" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Headlight Beams (Glowing projection cones shooting downwards) -->
+                <polygon class="headlight-beam" points="6.5,46 1,60 10,60 8,46" fill="url(#headlightGlow)" />
+                <polygon class="headlight-beam" points="17.5,46 14,60 23,60 16,46" fill="url(#headlightGlow)" />
+
                 <!-- Tires -->
                 <rect x="1" y="6" width="3" height="8" rx="1.5" fill="#111" />
                 <rect x="20" y="6" width="3" height="8" rx="1.5" fill="#111" />
@@ -1408,8 +1434,8 @@
                 <rect x="15" y="2" width="3" height="1.5" rx="0.5" fill="#ff4757" />
                 
                 <!-- Headlights (Xenon White) -->
-                <polygon points="6,45 9,45 8,46 7,46" fill="#fff" opacity="0.9" />
-                <polygon points="18,45 15,45 16,46 17,46" fill="#fff" opacity="0.9" />
+                <polygon class="physical-headlight" points="6,45 9,45 8,46 7,46" fill="#fff" opacity="0.9" />
+                <polygon class="physical-headlight" points="18,45 15,45 16,46 17,46" fill="#fff" opacity="0.9" />
                 
                 <!-- Grille -->
                 <rect x="9.5" y="47" width="2" height="1" rx="0.3" fill="#ff7f50" />

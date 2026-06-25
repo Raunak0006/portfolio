@@ -1272,6 +1272,150 @@
             threshold: 0.12
         });
         reveals.forEach(el => revealObserver.observe(el));
+
+        // ─── Custom Road Scrollbar (Desktop Only) ───
+        (function() {
+            const roadContainer = document.getElementById('roadScrollbar');
+            const roadCar = document.getElementById('roadCar');
+            if (!roadContainer || !roadCar) return;
+
+            let isDragging = false;
+            let startY = 0;
+            let startTop = 0;
+
+            function updateCarPosition() {
+                if (window.innerWidth < 1024) return;
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                
+                if (docHeight <= 0) {
+                    roadCar.style.top = '6px';
+                    return;
+                }
+
+                const scrollPercent = scrollTop / docHeight;
+                const containerHeight = roadContainer.clientHeight;
+                const carHeight = roadCar.clientHeight;
+                const maxTravel = containerHeight - carHeight - 12; // 6px padding top/bottom
+                
+                const targetY = scrollPercent * maxTravel + 6;
+                roadCar.style.top = targetY + 'px';
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!isDragging) {
+                    requestAnimationFrame(updateCarPosition);
+                }
+            });
+
+            window.addEventListener('resize', updateCarPosition);
+            
+            // Wait for full page layout load to calculate height correctly
+            window.addEventListener('load', updateCarPosition);
+            setTimeout(updateCarPosition, 500); // Fallback
+
+            // Drag behavior
+            roadCar.addEventListener('mousedown', (e) => {
+                if (window.innerWidth < 1024) return;
+                isDragging = true;
+                startY = e.clientY;
+                startTop = parseInt(window.getComputedStyle(roadCar).top, 10) || 6;
+                document.body.style.userSelect = 'none';
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                const deltaY = e.clientY - startY;
+                const containerHeight = roadContainer.clientHeight;
+                const carHeight = roadCar.clientHeight;
+                const maxTravel = containerHeight - carHeight - 12;
+                
+                let targetTop = startTop + deltaY;
+                targetTop = Math.max(6, Math.min(targetTop, maxTravel + 6));
+                
+                roadCar.style.top = targetTop + 'px';
+
+                const scrollPercent = (targetTop - 6) / maxTravel;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                window.scrollTo(0, scrollPercent * docHeight);
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    document.body.style.userSelect = '';
+                }
+            });
+
+            roadContainer.addEventListener('click', (e) => {
+                if (window.innerWidth < 1024) return;
+                if (e.target.closest('#roadCar')) return;
+
+                const rect = roadContainer.getBoundingClientRect();
+                const clickY = e.clientY - rect.top;
+                const carHeight = roadCar.clientHeight;
+                const containerHeight = roadContainer.clientHeight;
+                const maxTravel = containerHeight - carHeight - 12;
+
+                let targetTop = clickY - (carHeight / 2);
+                targetTop = Math.max(6, Math.min(targetTop, maxTravel + 6));
+
+                const scrollPercent = (targetTop - 6) / maxTravel;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                
+                window.scrollTo({
+                    top: scrollPercent * docHeight,
+                    behavior: 'smooth'
+                });
+            });
+        })();
     </script>
+
+    <!-- Custom Road Scrollbar Elements -->
+    <div class="road-scrollbar-container" id="roadScrollbar">
+        <div class="road-scrollbar-line"></div>
+        <div class="road-car-handle" id="roadCar">
+            <svg class="road-car-svg" viewBox="0 0 24 48" xmlns="http://www.w3.org/2000/svg">
+                <!-- Tires -->
+                <rect x="1" y="6" width="3" height="8" rx="1.5" fill="#111" />
+                <rect x="20" y="6" width="3" height="8" rx="1.5" fill="#111" />
+                <rect x="1" y="34" width="3" height="8" rx="1.5" fill="#111" />
+                <rect x="20" y="34" width="3" height="8" rx="1.5" fill="#111" />
+                
+                <!-- Metallic Blue Body -->
+                <path d="M 5,6 C 5,2 8,0 12,0 C 16,0 19,2 19,6 L 19,42 C 19,45 16,48 12,48 C 8,48 5,45 5,42 Z" fill="#0056b3" />
+                
+                <!-- Roof -->
+                <path d="M 6.5,14 L 17.5,14 L 16.5,32 L 7.5,32 Z" fill="#111" />
+                
+                <!-- Windows -->
+                <path d="M 7,14 C 7,12 8,10 12,10 C 16,10 17,12 17,14 L 16,18 L 8,18 Z" fill="#a4b0be" opacity="0.6" />
+                <path d="M 8,28 L 16,28 L 16.5,32 C 16.5,33 15.5,34 12,34 C 8.5,34 7.5,33 7.5,32 Z" fill="#a4b0be" opacity="0.6" />
+                
+                <!-- Side Mirrors -->
+                <path d="M 5,12 C 3.5,12 3.5,13.5 5,14 Z" fill="#0056b3" />
+                <path d="M 19,12 C 20.5,12 20.5,13.5 19,14 Z" fill="#0056b3" />
+                
+                <!-- Taillights (Red) -->
+                <rect x="6" y="2" width="3" height="1.5" rx="0.5" fill="#ff4757" />
+                <rect x="15" y="2" width="3" height="1.5" rx="0.5" fill="#ff4757" />
+                
+                <!-- Headlights (Xenon White) -->
+                <polygon points="6,45 9,45 8,46 7,46" fill="#fff" opacity="0.9" />
+                <polygon points="18,45 15,45 16,46 17,46" fill="#fff" opacity="0.9" />
+                
+                <!-- Grille -->
+                <rect x="9.5" y="47" width="2" height="1" rx="0.3" fill="#ff7f50" />
+                <rect x="12.5" y="47" width="2" height="1" rx="0.3" fill="#ff7f50" />
+
+                <!-- stripes -->
+                <rect x="9.5" y="20" width="1" height="5" fill="#54a0ff" />
+                <rect x="10.5" y="20" width="1" height="5" fill="#341f97" />
+                <rect x="11.5" y="20" width="1" height="5" fill="#ee5253" />
+            </svg>
+        </div>
+    </div>
 </body>
 </html>

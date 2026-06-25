@@ -834,8 +834,126 @@
         const bentoCards = document.querySelectorAll('.bento-card');
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        bentoCards.forEach(card => {
-            // Mouse track for spotlight glow only (no tilt)
+        // Code snippets per project card (mapped by index)
+        const codeSnippets = [
+            // Card 0: RaashanKart (Next.js, React, Framer Motion)
+            [
+                'const [cart, setCart] = useState([]);',
+                'export default function Home() {',
+                '<motion.div animate={{ opacity: 1 }}>',
+                'useEffect(() => { fetchProducts(); }, []);',
+                'const router = useRouter();',
+                'return <CartProvider>{children}</CartProvider>',
+                'npm run dev',
+                'getServerSideProps(ctx)',
+                'const variants = { hidden: { y: 20 } };',
+                'import { AnimatePresence } from "framer-motion";'
+            ],
+            // Card 1: Typing Battle (HTML5, Socket.io, JS)
+            [
+                'socket.emit("startRace", roomId);',
+                'document.addEventListener("keydown", e => {',
+                'const wpm = Math.round(chars / 5 / mins);',
+                'io.on("connection", socket => {',
+                'socket.broadcast.emit("progress", data);',
+                'let accuracy = (correct / total) * 100;',
+                'const timer = setInterval(() => {}, 1000);',
+                'socket.on("raceComplete", scores => {',
+                '<input type="text" id="typing-input">',
+                'clearInterval(timer);'
+            ],
+            // Card 2: Code Checker (Java, Spring Boot, MySQL)
+            [
+                '@RestController',
+                'public class CodeAnalyzer {',
+                '@GetMapping("/api/scan")',
+                'SELECT * FROM violations WHERE severity > 3;',
+                'private final ScanService service;',
+                '@Autowired',
+                'ResponseEntity.ok(results);',
+                'public int calculateScore() {',
+                'spring.datasource.url=jdbc:mysql://',
+                'return violations.stream().count();'
+            ],
+            // Card 3: Secure API Console (Express, TypeScript, Prisma)
+            [
+                'const app: Express = express();',
+                'await prisma.trade.findMany({});',
+                'interface TradePayload {',
+                'app.use(cors({ origin: "*" }));',
+                'model Trade { id Int @id @default }',
+                'export type ApiResponse<T> = {',
+                'const latency = Date.now() - start;',
+                'npx prisma migrate dev',
+                'app.listen(3001, () => {});',
+                'async function getTrades(): Promise<Trade[]>'
+            ],
+            // Card 4: Internship Matcher (HTML/CSS, JS, Security)
+            [
+                'function matchSkills(student, role) {',
+                'const score = skills.reduce((a, s) =>',
+                'document.querySelector(".match-pill")',
+                'if (compatibility > 70) return "Strong";',
+                'localStorage.setItem("profile", json);',
+                'fetch("/api/match", { method: "POST" })',
+                'const filtered = roles.filter(r =>',
+                '.match-pill { border-radius: 9999px; }',
+                'addEventListener("click", toggleSkill);',
+                'return Math.round(score / total * 100);'
+            ],
+            // Card 5: Sentiflow (JavaScript, NLP)
+            [
+                'function analyzeSentiment(text) {',
+                'const tokens = text.toLowerCase().split(" ");',
+                'const positives = ["happy", "great", "love"];',
+                'let score = tokens.reduce((acc, word) =>',
+                'if (score > 0) return "Positive 😊";',
+                'const negatives = ["bad", "hate", "sad"];',
+                'export function tokenize(input) {',
+                'return { tone, confidence: Math.abs(score) };',
+                'document.oninput = e => analyze(e.target);',
+                'console.log(analyzeSentiment(userInput));'
+            ]
+        ];
+
+        // ── Code Burst Effect ──
+        function burstCodeFromCard(card, cardIndex) {
+            const rect = card.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const snippets = codeSnippets[cardIndex] || codeSnippets[0];
+            const count = 10 + Math.floor(Math.random() * 5); // 10-14 particles
+
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('span');
+                el.className = 'code-burst-particle';
+                el.textContent = snippets[i % snippets.length];
+                document.body.appendChild(el);
+
+                // Random direction angle (full 360°)
+                const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.6;
+                const distance = 180 + Math.random() * 280; // px to travel
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                const rotation = (Math.random() - 0.5) * 60; // random tilt
+
+                // Position at center of card
+                el.style.left = cx + 'px';
+                el.style.top = cy + 'px';
+                el.style.setProperty('--tx', tx + 'px');
+                el.style.setProperty('--ty', ty + 'px');
+                el.style.setProperty('--rot', rotation + 'deg');
+                el.style.animationDelay = (Math.random() * 0.15) + 's';
+
+                // Remove after animation ends (2s)
+                setTimeout(() => {
+                    el.remove();
+                }, 2200);
+            }
+        }
+
+        bentoCards.forEach((card, idx) => {
+            // Mouse tracking for spotlight effect
             if (!isTouchDevice) {
                 card.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
@@ -853,11 +971,12 @@
                 });
             }
 
-            // Spin animation trigger
+            // Spin animation trigger + code burst
             const triggerSpin = () => {
                 card.classList.remove('spin-horizontal');
                 void card.offsetWidth; // force reflow
                 card.classList.add('spin-horizontal');
+                burstCodeFromCard(card, idx);
             };
 
             // Only listen to mouseenter on non-touch devices to prevent double-firing on tap

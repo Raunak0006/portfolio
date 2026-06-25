@@ -2542,9 +2542,44 @@ a {
     }
 }
 
+/* ─── Code Burst Particles ─── */
+.code-burst-particle {
+    position: fixed;
+    z-index: 9999;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #c3e88d;
+    background: rgba(15, 16, 18, 0.85);
+    border: 1px solid rgba(195, 232, 141, 0.2);
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: codeBurstFly 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    text-shadow: 0 0 8px rgba(195, 232, 141, 0.3);
+    box-shadow: 0 0 12px rgba(195, 232, 141, 0.08);
+}
 
-
-
+@keyframes codeBurstFly {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+    }
+    15% {
+        opacity: 1;
+        transform: translate(calc(-50% + var(--tx) * 0.4), calc(-50% + var(--ty) * 0.4)) scale(1) rotate(calc(var(--rot) * 0.5));
+    }
+    40% {
+        opacity: 0.9;
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--rot));
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--tx) * 1.15), calc(-50% + var(--ty) * 1.15)) scale(0.7) rotate(var(--rot));
+    }
+}
 
 
 
